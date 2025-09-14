@@ -1,0 +1,549 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Merienda:wght@300..900&display=swap');
+
+
+/*Globals Variables*/
+
+:root {
+    --dark-clr: #081d2c;
+    --second-dark-clr: #112e42;
+    --text-clr: #f1f5f9;
+    --light-text-clr: #c9d9e8;
+    --global-clr: #0fbbff;
+}
+
+
+/* General Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+
+/* Query Cell */
+
+@media (max-width: 850px){
+    
+    /* html and body style */
+
+    html {
+        overflow-x: hidden;
+        line-height: calc(1em + 0.5rem);
+    }
+
+    body {
+        font-family: "Jost", sans-serif;
+        background: var(--dark-clr);
+        color: var(--text-clr);
+        line-height: 1.3;
+        margin: auto;
+    }
+
+    /* Header */
+
+    header {
+        width: 100%;
+        background: transparent;
+        z-index: 1000;
+        padding: 1.5rem 0;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 5%;
+    }
+
+    .logo {
+        position: relative;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--text-clr);
+    }
+
+    .logo span {
+        color: var(--global-clr);
+    }
+
+
+    /* Navigation Menu */
+
+    .navbar ul {
+        display: none;
+    }
+
+    header .navbar ul li {
+        position: relative;
+        margin-right: 20px;
+    }
+
+    .navbar ul li a {
+        position: relative;
+        font-size: 1.3rem;
+        font-weight: 500;
+        margin-left: 20px;
+        color: var(--text-clr);
+    }
+
+    .navbar ul li a:hover, .navbar ul li a.active {
+        color: var(--global-clr);
+    }
+
+    header .navbar ul li a::after {
+        content: '';
+        position: absolute;
+        background: var(--global-clr);
+        height: 3px;
+        width: 0;
+        left: 0;
+        bottom: -2px;
+        pointer-events: none;
+        transition: .3s;
+    }
+
+    header .navbar ul li a:hover::after, header .navbar ul li a.active::after {
+        width: 100%;
+    }
+
+    /* CV Button */
+
+    .cvbtn {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        background: var(--global-clr);
+        color: var(--text-clr);
+        padding: 12px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px var(--global-clr);
+        cursor: pointer;
+        transition: .5s;
+    }
+
+    .cvbtn:hover {
+        box-shadow: 0 0 5px var(--global-clr),
+                    0 0 10px var(--global-clr),
+                    0 0 15px var(--global-clr);
+    }
+
+    /* MenuBar */
+
+    .menubar {
+        box-sizing: border-box;
+        padding: 10px;
+        display: block;
+    }
+    
+    .material-symbols-outlined {
+        position: relative;
+        margin: 10px;
+        transform: scale(2.4);
+        background: transparent;
+        color: var(--global-clr);
+        transition: .5s;
+    }
+
+    .material-symbols-outlined:hover {
+        cursor: pointer;
+        transform: scale(2.6);
+        border-radius: 2px;
+        box-shadow: 0 0 5px var(--global-clr),
+                    0 0 10px var(--global-clr),
+                    0 0 15px var(--global-clr);
+    }
+
+
+    /* Hero Section */
+
+    .hero-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 4rem 2%;
+    }
+
+    .hero-content {
+        margin: auto;
+        padding-left: 10px;
+        border-left: 10px solid var(--global-clr);
+        border-top-left-radius: 18px;
+        filter: drop-shadow(0 0 60px var(--global-clr));
+        max-width: 50%;
+        position: relative;
+        left: -30%;
+    }
+
+    .hero-image {
+        margin: auto;
+    }
+
+    .hero-image img {
+        visibility: hidden;
+        /* height: 600px;
+        width: 600px;
+        min-width: 400px;
+        margin-right: 10px; 
+        filter: drop-shadow(0 0 60px var(--global-clr)); */
+    }
+
+    .hero-content h3 {
+        font-size: 1.5rem;
+        font-weight: 300;
+    }
+
+    .hero-content h1 {
+        font-size: 2.4rem;
+        font-weight: 600;
+    }
+
+    .hero-content h2 {
+        font-size: 1.6rem;
+        font-weight: 400;
+    }
+
+    .hero-content h2 span {
+        color: var(--global-clr);
+    }
+
+    .hero-content p {
+        font-size: 1.2rem;
+        margin: 2rem 0;
+    }
+
+    /* Social Icons */
+
+    .social-icons {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .social-icons a {
+        display: flex;
+        font-size: 2rem;
+        background: transparent;
+        color: var(--global-clr);
+        transition: .5s;
+    }
+
+    .social-icons a:hover {
+        transform: translateY(-10px);
+    }
+
+    /* Hero Button */
+
+    .hero-btn {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .hero-btn .btn {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 10rem;
+        font-size: 1.3rem;
+        font-weight: 600;
+        padding: 0.6rem 0;
+        color: var(--dark-clr);
+        background: var(--global-clr);
+        border: 2px solid var(--global-clr);
+        border-radius: 5px;
+        cursor: pointer;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .btn:hover{
+        color: var(--global-clr);
+    }
+
+    .hero-btn .btn:nth-child(2) {
+        background: transparent;
+        color: var(--global-clr);
+    }
+
+    .hero-btn .btn:nth-child(2)::before {
+        background: var(--global-clr);
+    }
+
+    .hero-btn .btn:nth-child(2):hover {
+        color: var(--dark-clr);
+    }
+
+    .btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: var(--dark-clr);
+        transition: .5s;
+        z-index: -1;
+    }
+
+    .btn:hover::before {
+        width: 100%;
+    }
+}
+
+@media (min-width: 851px){
+    /* html and body style */
+
+html {
+    overflow-x: hidden;
+    line-height: calc(1em + 0.5rem);
+}
+
+body {
+    font-family: "Jost", sans-serif;
+    background: var(--dark-clr);
+    color: var(--text-clr);
+    line-height: 1.3;
+}
+
+/* Header */
+
+header {
+    width: 100%;
+    background: transparent;
+    z-index: 1000;
+    padding: 1.5rem 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 10%;
+}
+
+.logo {
+    position: relative;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-clr);
+    z-index: 0;
+}
+
+.logo span {
+    color: var(--global-clr);
+}
+
+
+/* Navigation Menu */
+
+.navbar ul {
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    position: relative;
+
+}
+
+header .navbar ul li {
+    position: relative;
+    margin-right: 20px;
+}
+
+.navbar ul li a {
+    position: relative;
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-left: 20px;
+    color: var(--text-clr);
+}
+
+.navbar ul li a:hover, .navbar ul li a.active {
+    color: var(--global-clr);
+}
+
+header .navbar ul li a::after {
+    content: '';
+    position: absolute;
+    background: var(--global-clr);
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -2px;
+    pointer-events: none;
+    transition: .3s;
+}
+
+header .navbar ul li a:hover::after, header .navbar ul li a.active::after {
+    width: 100%;
+}
+
+/* CV Button */
+
+.cvbtn {
+    width: fit-content;
+    white-space: nowrap;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: var(--global-clr);
+    color: var(--text-clr);
+    padding: 12px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px var(--global-clr);
+    cursor: pointer;
+    transition: .5s;
+}
+
+.cvbtn:hover {
+    box-shadow: 0 0 5px var(--global-clr),
+                0 0 10px var(--global-clr),
+                0 0 15px var(--global-clr);
+}
+
+/* MenuBar */
+
+.menubar{
+    display: none;
+}
+
+/* Hero Section */
+
+.hero-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 10%;
+}
+
+
+.hero-image img {
+    height: 600px;
+    width: 600px;
+    min-width: 400px;
+    margin-right: 10px;
+    filter: drop-shadow(0 0 60px var(--global-clr));
+}
+
+.hero-content {
+    max-width: 50%;
+}
+
+.hero-content h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.hero-content h2 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.hero-content h2 span {
+    color: var(--global-clr);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin: 2rem 0;
+}
+
+/* Social Icons */
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.social-icons a {
+    display: flex;
+    font-size: 2rem;
+    background: transparent;
+    color: var(--global-clr);
+    transition: .5s;
+}
+
+.social-icons a:hover {
+    transform: translateY(-10px);
+}
+
+/* Hero Button */
+
+.hero-btn {
+    display: flex;
+    gap: 1rem;
+}
+
+.hero-btn .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 10rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 0.6rem 0;
+    color: var(--dark-clr);
+    background: var(--global-clr);
+    border: 2px solid var(--global-clr);
+    border-radius: 5px;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn:hover{
+    color: var(--global-clr);
+}
+
+.hero-btn .btn:nth-child(2) {
+    background: transparent;
+    color: var(--global-clr);
+}
+
+.hero-btn .btn:nth-child(2)::before {
+    background: var(--global-clr);
+}
+
+.hero-btn .btn:nth-child(2):hover {
+    color: var(--dark-clr);
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--dark-clr);
+    transition: .5s;
+    z-index: -1;
+}
+
+.btn:hover::before {
+    width: 100%;
+}
+}
